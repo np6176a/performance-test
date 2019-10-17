@@ -1,40 +1,55 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'flexboxgrid'
 import './App.css'
 import UserList from './UserList'
 
-function App () {
-  const [data, setData] = useState(null)
-  const [active, setActive] = useState(false)
+class App extends React.Component {
 
-  const loadData = () => {
+  state = {
+    data: null,
+    active: false
+  }
+
+  loadData = () => {
     fetch('/data.json')
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(data => this.setState({ data }))
   }
 
-  if (data === null) {
-    return <button onClick={loadData}>Load</button>
+  setActive = () => {
+    this.setState({ active: !this.state.active })
   }
 
-  return (
-    <div className="App row">
-      <header className='col-xs-12'>
-        Perfomance Test
-      </header>
-      <div className='col-xs-12 row content'>
-        <button
-          onClick={() => setActive(!active)}
-          style={active ? { background: '#09d3ac' } : { background: '#fff' }}
-        >
-          Toggle Button State
-        </button>
-        <div style={{ width: '100vw', height: '100vh' }}>
-          <UserList data={data} />
+  componentDidMount () {
+    this.loadData()
+  }
+
+  render () {
+
+    const { data, active } = this.state
+    if (data === null) {
+      return <button>Loading Data</button>
+    }
+
+    return (
+      <div className="App row">
+        <header className='col-xs-12'>
+          Perfomance Test
+        </header>
+        <div className='col-xs-12 row content'>
+          <button
+            onClick={this.setActive}
+            style={active ? { background: '#09d3ac' } : { background: '#fff' }}
+          >
+            Toggle Button State
+          </button>
+          <div style={{ width: '100vw', height: '100vh' }}>
+            <UserList data={data} />
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default App
