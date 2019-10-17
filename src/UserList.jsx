@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { userData } from './utils'
 
 const UserList = ({ data }) => {
-  const users = userData(data)
+  const users = useMemo(() => userData(data), [data])
   return <ListItem users={users} />
 }
 
-export default UserList
+export default React.memo(UserList)
 
 const ListItem = ({ users }) => {
   return (

@@ -12,17 +12,19 @@ function App () {
       .then(data => setData(data))
   }
 
+  loadData()
+
+  if (data === null) {
+    return 'Loading...'
+  }
+
   return (
     <div className="App row">
       <header className='col-xs-12'>
         Perfomance Test
       </header>
       <div className='col-xs-12 row content'>
-        {
-          data == null ?
-            <button onClick={loadData}>Load User Data</button>
-            : <UserList data={data} />
-        }
+        <UserList data={data} />
       </div>
     </div>
   )
