@@ -24,7 +24,6 @@ header {
 
 .boxStyles {
     text-align: left;
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
     padding: 10px;
     max-height: 200px;
     height: 100%;
