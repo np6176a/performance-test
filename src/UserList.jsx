@@ -24,19 +24,16 @@ const UserList = ({ data }) => {
 
 export default UserList
 
-class ListItem extends React.Component {
-  render () {
-    const { data, index, style } = this.props
-    const user = data[index]
-    return (
-      <div key={user.id} style={style}>
-        <div className='boxStyles'>
-          <h4>{user.name}</h4>
-          <p>Company: {user.company}</p>
-          <p>Email: {user.email}</p>
-          <p>Phone: {user.phone}</p>
-        </div>
+const ListItem = ({data, index, style}) => {
+  const user = data[index]
+  return (
+    <div key={user.id} style={style}>
+      <div className='boxStyles'>
+        <h4>{user.name}</h4>
+        <p>Company: {user.company}</p>
+        <p>Email: {user.email}</p>
+        <p>Phone: {user.phone}</p>
       </div>
-    )
-  }
+    </div>
+  )
 }
