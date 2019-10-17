@@ -1,10 +1,10 @@
-import React, { useMemo, useContext } from 'react'
+import React, { useContext } from 'react'
 import { userData } from './utils'
 import { DataContext } from './DataProvider'
 
 const UserList = () => {
   const context = useContext(DataContext)
-  const users = useMemo(() => userData(context.data), [context.data])
+  const users = userData(context.data)
   return (
     <React.Fragment>
       <ListItem users={users} />
@@ -12,7 +12,7 @@ const UserList = () => {
   )
 }
 
-export default React.memo(UserList)
+export default UserList
 
 const ListItem = ({ users }) => {
   return (
