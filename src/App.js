@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import 'flexboxgrid'
 import './App.css'
 import UserList from './UserList'
-import DataProvider from './DataProvider'
-import Buttons from './Buttons'
 
 function App () {
   const [data, setData] = useState(null)
@@ -14,7 +12,6 @@ function App () {
       .then(response => response.json())
       .then(data => setData(data))
   }
-
   loadData()
 
 
@@ -35,9 +32,6 @@ function App () {
           Show Active Users
         </button>
         <UserList data={data} />
-        {/*<DataProvider>*/}
-        {/*  <UserList />*/}
-        {/*</DataProvider>*/}
       </div>
     </div>
   )
