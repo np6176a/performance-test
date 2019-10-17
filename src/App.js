@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import UserList from './UserList'
 
 class App extends React.Component {
   state = {
@@ -17,13 +18,17 @@ class App extends React.Component {
   }
 
   render () {
+    const { data } = this.state
+    if(data === null) {
+      return 'Loading...'
+    }
     return (
       <div className="App row">
         <header className='col-xs-12'>
           Perfomance Test
         </header>
         <div className='col-xs-12'>
-          No Data Yet!!
+          <UserList data={data} />
         </div>
       </div>
     )
