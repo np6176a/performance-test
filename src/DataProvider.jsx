@@ -23,7 +23,8 @@ class DataProvider extends React.Component {
   }
 
   componentDidMount () {
-    this.runLoadData()
+    // this.runLoadData()
+    this.loadData()
   }
 
   render () {

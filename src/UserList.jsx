@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { userData } from './utils'
-import { DataContext } from './DataProvider'
+// import { DataContext } from './DataProvider'
 
-const UserList = () => {
-  const context = useContext(DataContext)
-  const users = userData(context.data)
+const UserList = ({ data }) => {
+  // const context = useContext(DataContext)
+  const users = userData(data)
   return (
     <React.Fragment>
       <ListItem users={users} />
@@ -14,22 +14,19 @@ const UserList = () => {
 
 export default UserList
 
-class ListItem extends React.Component {
-  render () {
-    const { users } = this.props
-    return (
-      users.map(user => (
-        <div className='col-xs-12' key={user.id} style={{ marginBottom: '40px' }}>
-          <div className='boxStyles'>
-            <h4>{user.name}</h4>
-            <p>Company: {user.company}</p>
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-          </div>
+const ListItem = ({ users }) => {
+  return (
+    users.map(user => (
+      <div className='col-xs-12' key={user.id} style={{ marginBottom: '40px' }}>
+        <div className='boxStyles'>
+          <h4>{user.name}</h4>
+          <p>Company: {user.company}</p>
+          <p>Email: {user.email}</p>
+          <p>Phone: {user.phone}</p>
         </div>
-      ))
-    )
-  }
+      </div>
+    ))
+  )
 }
 
 // const ListItem = ({ users }) => {
