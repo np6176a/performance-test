@@ -1,15 +1,48 @@
-body{
-  background: #f8f9fb;
+body {
+    background: #f8f9fb;
 }
-.App{
-  text-align: center;
+
+.App {
+    text-align: center;
 }
-header{
-  background: #09d3ac;
-  text-align: center;
-  padding: 20px;
-  color: #000;
-  font-weight: 700;
-  font-size: 2em;
-  margin-bottom: 40px;
+
+header {
+    background: #09d3ac;
+    text-align: center;
+    padding: 20px;
+    color: #000;
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.content {
+    padding: 0;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+.boxStyles {
+    text-align: left;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    max-height: 200px;
+    height: 100%;
+    background: #fefefe;
+    border-radius: 3px;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    outline: none;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid #09d3ac;
+    color: #000000;
+    font-weight: 700;
+    -webkit-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
