@@ -19,7 +19,7 @@ class ListItem extends React.Component {
     const { users } = this.props
     return (
       users.map(user => (
-        <div className='col-xs-3' key={user.id} style={{ marginBottom: '40px' }}>
+        <div className='col-xs-12' key={user.id} style={{ marginBottom: '40px' }}>
           <div className='boxStyles'>
             <h4>{user.name}</h4>
             <p>Company: {user.company}</p>
