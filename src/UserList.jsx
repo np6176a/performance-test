@@ -14,17 +14,35 @@ const UserList = () => {
 
 export default UserList
 
-const ListItem = ({ users }) => {
-  return (
-    users.map(user => (
-      <div className='col-xs-3' key={user.id} style={{ marginBottom: '40px' }}>
-        <div className='boxStyles'>
-          <h4>{user.name}</h4>
-          <p>Company: {user.company}</p>
-          <p>Email: {user.email}</p>
-          <p>Phone: {user.phone}</p>
+class ListItem extends React.Component {
+  render () {
+    const { users } = this.props
+    return (
+      users.map(user => (
+        <div className='col-xs-3' key={user.id} style={{ marginBottom: '40px' }}>
+          <div className='boxStyles'>
+            <h4>{user.name}</h4>
+            <p>Company: {user.company}</p>
+            <p>Email: {user.email}</p>
+            <p>Phone: {user.phone}</p>
+          </div>
         </div>
-      </div>
-    ))
-  )
+      ))
+    )
+  }
 }
+
+// const ListItem = ({ users }) => {
+//   return (
+//     users.map(user => (
+//       <div className='col-xs-3' key={user.id} style={{ marginBottom: '40px' }}>
+//         <div className='boxStyles'>
+//           <h4>{user.name}</h4>
+//           <p>Company: {user.company}</p>
+//           <p>Email: {user.email}</p>
+//           <p>Phone: {user.phone}</p>
+//         </div>
+//       </div>
+//     ))
+//   )
+// }

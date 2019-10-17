@@ -22,12 +22,11 @@ class DataProvider extends React.Component {
     setInterval(this.loadData, 500)
   }
 
-  // componentDidMount () {
-  //   this.runLoadData()
-  // }
+  componentDidMount () {
+    this.runLoadData()
+  }
 
   render () {
-    this.runLoadData()
     return (
       <DataContext.Provider
         value={{
