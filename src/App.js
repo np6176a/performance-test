@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'flexboxgrid'
 import './App.css'
 import UserList from './UserList'
@@ -12,8 +12,8 @@ function App () {
       .then(response => response.json())
       .then(data => setData(data))
   }
-  loadData()
 
+  useEffect(() => loadData())
 
   if (data === null) {
     return 'Loading...'
