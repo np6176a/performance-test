@@ -3,21 +3,24 @@ import 'flexboxgrid'
 import './App.css'
 import UserList from './UserList'
 import DataProvider from './DataProvider'
+import Buttons from './Buttons'
 
 function App () {
-  // const [data, setData] = useState(null)
-  //
-  // const loadData = () => {
-  //   fetch('/data.json')
-  //     .then(response => response.json())
-  //     .then(data => setData(data))
-  // }
-  //
-  // loadData()
-  //
-  // if (data === null) {
-  //   return 'Loading...'
-  // }
+  const [data, setData] = useState(null)
+  const [active, setActive] = useState(false)
+
+  const loadData = () => {
+    fetch('/data.json')
+      .then(response => response.json())
+      .then(data => setData(data))
+  }
+
+  loadData()
+
+
+  if (data === null) {
+    return 'Loading...'
+  }
 
   return (
     <div className="App row">
@@ -25,9 +28,16 @@ function App () {
         Perfomance Test
       </header>
       <div className='col-xs-12 row content'>
-        <DataProvider>
-          <UserList />
-        </DataProvider>
+        <button
+          onClick={() => setActive(!active)}
+          style={active ? { background: '#09d3ac' } : { background: '#fff' }}
+        >
+          Show Active Users
+        </button>
+        <UserList data={data} />
+        {/*<DataProvider>*/}
+        {/*  <UserList />*/}
+        {/*</DataProvider>*/}
       </div>
     </div>
   )

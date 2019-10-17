@@ -9,12 +9,15 @@ class DataProvider extends React.Component {
   }
 
   loadData = () => {
-    fetch('/data.json')
-      .then(response => response.json())
-      .then(data => this.setState({ data }))
+    setInterval(
+      fetch('/data.json')
+        .then(response => response.json())
+        .then(data => this.setState({ data })),
+      100
+    )
   }
 
-  setActive = () =>{
+  setActive = () => {
     this.setState({ active: !this.state.active })
   }
 
