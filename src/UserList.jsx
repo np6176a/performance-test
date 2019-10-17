@@ -1,12 +1,24 @@
 import React from 'react'
+import { FixedSizeList as List } from 'react-window'
+import AutoSizer from 'react-virtualized-auto-sizer'
 import { userData } from './utils'
 
 const UserList = ({ data }) => {
   const users = userData(data)
   return (
-    <React.Fragment>
-      <ListItem users={users} />
-    </React.Fragment>
+    <AutoSizer>
+      {({ height, width }) => (
+        <List
+          itemData={users}
+          height={height}
+          itemCount={users.length}
+          itemSize={250}
+          width={width}
+        >
+          {ListItem}
+        </List>
+      )}
+    </AutoSizer>
   )
 }
 
@@ -14,18 +26,17 @@ export default UserList
 
 class ListItem extends React.Component {
   render () {
-    const { users } = this.props
+    const { data, index, style } = this.props
+    const user = data[index]
     return (
-      users.map(user => (
-        <div className='col-xs-3' key={user.id} style={{ marginBottom: '40px' }}>
-          <div className='boxStyles'>
-            <h4>{user.name}</h4>
-            <p>Company: {user.company}</p>
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-          </div>
+      <div key={user.id} style={style}>
+        <div className='boxStyles'>
+          <h4>{user.name}</h4>
+          <p>Company: {user.company}</p>
+          <p>Email: {user.email}</p>
+          <p>Phone: {user.phone}</p>
         </div>
-      ))
+      </div>
     )
   }
 }

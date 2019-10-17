@@ -12,11 +12,9 @@ function App () {
       .then(response => response.json())
       .then(data => setData(data))
   }
-  loadData()
-
 
   if (data === null) {
-    return 'Loading...'
+    return <button onClick={loadData}>Load</button>
   }
 
   return (
@@ -29,9 +27,11 @@ function App () {
           onClick={() => setActive(!active)}
           style={active ? { background: '#09d3ac' } : { background: '#fff' }}
         >
-          Show Active Users
+          Toggle Button State
         </button>
-        <UserList data={data} />
+        <div style={{ width: '100vw', height: '100vh' }}>
+          <UserList data={data} />
+        </div>
       </div>
     </div>
   )
