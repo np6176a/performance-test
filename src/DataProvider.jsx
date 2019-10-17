@@ -18,11 +18,16 @@ class DataProvider extends React.Component {
     this.setState({ active: !this.state.active })
   }
 
-  componentDidMount () {
-    this.loadData()
+  runLoadData = () => {
+    setInterval(this.loadData, 500)
   }
 
+  // componentDidMount () {
+  //   this.runLoadData()
+  // }
+
   render () {
+    this.runLoadData()
     return (
       <DataContext.Provider
         value={{

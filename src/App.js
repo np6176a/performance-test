@@ -3,6 +3,7 @@ import 'flexboxgrid'
 import './App.css'
 import UserList from './UserList'
 import DataProvider from './DataProvider'
+import Buttons from './Buttons'
 
 function App () {
   // const [data, setData] = useState(null)
@@ -26,6 +27,7 @@ function App () {
       </header>
       <div className='col-xs-12 row content'>
         <DataProvider>
+          <Buttons />
           <UserList />
         </DataProvider>
       </div>
