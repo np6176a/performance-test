@@ -3,7 +3,6 @@ import 'flexboxgrid'
 import './App.css'
 import UserList from './UserList'
 import DataProvider from './DataProvider'
-import Buttons from './Buttons'
 
 class App extends React.Component {
   state = {
@@ -16,9 +15,11 @@ class App extends React.Component {
       .then(data => this.setState({ data }))
   }
 
+  setActive = () => {
+    this.setState({ active: !this.state.active })
+  }
 
   componentDidMount () {
-    // this.runLoadData()
     this.loadData()
   }
 
@@ -31,7 +32,12 @@ class App extends React.Component {
         </header>
         <div className='col-xs-12 row content'>
           <DataProvider>
-            <Buttons  />
+            <button
+              onClick={this.setActive}
+              style={active ? { background: '#09d3ac' } : { background: '#fff' }}
+            >
+              Show Button State
+            </button>
             <UserList data={data} />
           </DataProvider>
         </div>
